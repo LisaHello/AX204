@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Scenery</title>
+		<canvas id="myCanvas" width="800" height="500"></canvas>
+		<script>
+			function draw()
+			{
+				var c=document.getElementById("myCanvas");
+				var ctx=c.getContext("2d");
+
+		        ctx.fillStyle = "rgb(102, 255, 153)";
+		        ctx.fillRect(0, 350, 800, 150);
+		        ctx.fillStyle = "rgb(204, 255, 255)";
+		        ctx.fillRect(0, 0, 800, 350);
+
+		        ctx.beginPath();
+		        ctx.arc(100,100,50,0, 2*Math.PI);
+		        ctx.closePath();
+		        ctx.stroke();
+		        ctx.fillStyle = "yellow";
+		        ctx.fill();
+
+		        ctx.beginPath()
+		        ctx.moveTo(300, 500);
+		        ctx.lineTo(350, 350);
+		        ctx.lineTo(400, 350);
+		        ctx.lineTo(450, 500);
+		        ctx.fillStyle = "rgb(166,166,166)"
+		        ctx.fill()
+		        ctx.stroke();
+		        ctx.closePath();
+
+		        ctx.moveTo(375, 500);
+		        ctx.strokeStyle = 'white'
+		        ctx.lineTo(375, 350);
+		        ctx.stroke();
+
+		        ctx.fillRect(500, 100, 100, 250);
+		        ctx.clearRect(520, 120, 20, 20);
+		        ctx.clearRect(560, 120, 20, 20);
+		        ctx.clearRect(520, 160, 20, 20);
+		        ctx.clearRect(560, 160, 20, 20);
+		        ctx.clearRect(520, 200, 20, 20);
+		        ctx.clearRect(560, 200, 20, 20);
+		        ctx.clearRect(520, 240, 20, 20);
+		        ctx.clearRect(560, 240, 20, 20);
+		        ctx.clearRect(520, 280, 20, 20);
+		        ctx.clearRect(560, 280, 20, 20);
+		        ctx.clearRect(520, 320, 20, 20);
+		        ctx.clearRect(560, 320, 20, 20);
+
+		        ctx.fillRect(610, 100, 100, 250);
+		        ctx.clearRect(630, 120, 20, 20);
+		        ctx.clearRect(670, 120, 20, 20);
+		        ctx.clearRect(630, 160, 20, 20);
+		        ctx.clearRect(670, 160, 20, 20);
+		        ctx.clearRect(630, 200, 20, 20);
+		        ctx.clearRect(670, 200, 20, 20);
+		        ctx.clearRect(630, 240, 20, 20);
+		        ctx.clearRect(670, 240, 20, 20);
+		        ctx.clearRect(630, 280, 20, 20);
+		        ctx.clearRect(670, 280, 20, 20);
+		        ctx.clearRect(630, 320, 20, 20);
+		        ctx.clearRect(670, 320, 20, 20);
+
+		        ctx.fillRect(100, 250, 200, 100);
+		        ctx.clearRect(130, 310, 20, 20);
+		        ctx.clearRect(170, 310, 20, 20);
+		        ctx.clearRect(210, 310, 20, 20);
+		        ctx.clearRect(250, 310, 20, 20);
+		        ctx.clearRect(130, 270, 20, 20);
+		        ctx.clearRect(170, 270, 20, 20);
+		        ctx.clearRect(210, 270, 20, 20);
+		        ctx.clearRect(250, 270, 20, 20);
+
+		        var img = new Image();
+		        img.src = "car.png";
+		        img.onload = function()
+		        {
+		        	ctx.drawImage(img, 310, 300, 128, 128)
+		        }	
+			}
+
+		</script>
+	</head>
+
+	<body onload="draw()">
+
+	</body>
+</html>
