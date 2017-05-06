@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bouncing Ball</title>
+	<canvas id="canvas" width="600" height="400" style="border:1px solid black"></canvas>
+	<script>
+		var canvas;
+		var ctx; //cantext for drawing 2d graphics
+		var x=300, y=50, velX=0, velY=0;
+		var r = 20
+		var gravity = 0.2;
+
+		function init()
+		{
+			canvas = document.getElementById("canvas");
+			ctx = canvas.getContext("2d");
+
+			return setInterval(draw, 10);
+		}
+
+		function clear()
+		{
+			ctx.clearRect(0, 0, 600, 400);
+		}
+
+		// function to draw circle
+		function circle(x,y,r)
+		{
+			ctx.beginPath()
+			ctx.arc(x, y, r, 0, Math.PI*2);
+			ctx.closePath();
+			ctx.fillstyle = "black";
+			ctx.fill();
+		}
+
+		//function to draw entire scene
+		function draw()
+		{
+			clear();
+
+			velY += gravity; //velocity y affected gravity 
+			y += velY; //position is affected by velocity
+			x += velX;
+			 //colliding with floor
+			 if (y+r > 400)
+			 {
+			 	y = 400 - r;
+			 	velY = -velY * 0.9;
+			 }
+			 //colliding with ceiling 
+			 else if (y-r < 0)
+			 {
+			 	y = r;
+			 	velY = -velY * 0.9;
+			 }
+			  //colliding with right wall 
+			 if (x+r > 600)
+			 {
+			 	x = 600 - r;
+			 	velX = -velX*0.5;
+			 }
+			 //colliding with left wall 
+			 else if (x-r < 0)
+			 {
+			 	x = r;
+			 	velX = -velX*0.5;
+			 }
+
+			 circle(x, y, r);
+		}
+
+		// keyboard input for ball
+		function ballMove()
+		{
+			if (event.key == "a")
+			{
+				velX = -50;
+				velY = -50;
+			}
+			if (event.key == "d")
+			{
+				velX = 50;
+				velY = -50;
+			}
+		}
+
+	</script>
+</head>
+<body onload="init()" onkeydown="ballMove()">
+</body>
+</html>
