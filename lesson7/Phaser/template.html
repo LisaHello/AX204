@@ -55,6 +55,11 @@ function create() {
 
 	//create keyboard entry
 	cursors = game.input.keyboard.createCursorKeys();
+	cursors.up.onDown.add(function(){
+		if (player.body.touching.down)
+			player.body.velocity.y = -350;
+
+	})
 
 }
 
@@ -79,12 +84,6 @@ function update() {
 	{
 		player.animations.stop();
 		player.fame = 4;
-	} 
-
-
-	if(cursors.up.isDown && player.body.touching.down){
-		player.body.velocity.y = -350;
-	}
 
 	}
 </script>
